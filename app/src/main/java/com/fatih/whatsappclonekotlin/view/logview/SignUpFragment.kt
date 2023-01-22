@@ -38,7 +38,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToTabLayoutFragment2())
                 }
                 Status.LOADING->{
-                    println("loading")
                     binding.progressBarSignUp.visibility=View.VISIBLE
                 }
                 Status.ERROR->{

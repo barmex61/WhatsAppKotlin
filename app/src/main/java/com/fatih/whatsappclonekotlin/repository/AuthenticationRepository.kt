@@ -69,4 +69,5 @@ class AuthenticationRepository @Inject constructor(private val firebaseAuth: Fir
         firebaseAuth.signOut()
         setCurrentUser()
     }
+
 }

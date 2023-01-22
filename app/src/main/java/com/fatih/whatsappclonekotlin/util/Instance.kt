@@ -11,6 +11,6 @@ object Instance {
     var currentUser: MutableLiveData<FirebaseUser?> = MutableLiveData<FirebaseUser?>(firebaseAuth.currentUser)
     fun setCurrentUser(){
         currentUser.value=firebaseAuth.currentUser
-
     }
+
 }

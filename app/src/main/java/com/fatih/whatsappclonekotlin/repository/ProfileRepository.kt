@@ -1,6 +1,10 @@
 package com.fatih.whatsappclonekotlin.repository
 
 import android.net.Uri
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.fatih.whatsappclonekotlin.model.User
+import com.fatih.whatsappclonekotlin.room.UserDao
 import com.fatih.whatsappclonekotlin.util.Instance.currentUser
 import com.fatih.whatsappclonekotlin.util.Resource
 import com.google.firebase.firestore.FirebaseFirestore
@@ -9,7 +13,7 @@ import kotlinx.coroutines.tasks.await
 import java.util.UUID
 import javax.inject.Inject
 
-class ProfileRepository @Inject constructor(private val fireStore:FirebaseFirestore,private val storageReference:StorageReference):ProfileRepositoryInterface {
+class ProfileRepository @Inject constructor(private val fireStore:FirebaseFirestore,private val storageReference:StorageReference,private val userDao: UserDao):ProfileRepositoryInterface {
 
     override suspend fun setProfileImage(url: Uri): Resource<String> {
         return try {
@@ -45,7 +49,7 @@ class ProfileRepository @Inject constructor(private val fireStore:FirebaseFirest
                 Integer.valueOf(phoneFilter[indice].toString())
             }
         }catch (e:Exception){
-            return Resource.error(false,e.message)
+            return Resource.error(null,e.message)
         }
         val dataHashMap= hashMapOf<String,String>()
         dataHashMap["userName"]=name
@@ -60,8 +64,24 @@ class ProfileRepository @Inject constructor(private val fireStore:FirebaseFirest
                Resource.error(false,null)
            }
        }catch (e:Exception){
-           Resource.error(null,e.message)
+           Resource.error(false,e.message)
        }
 
+    }
+
+    override fun getUserInfo(): LiveData<User>   {
+        return try {
+            userDao.getUserInfo(currentUser.value!!.uid)
+        }catch (e:Exception){
+            MutableLiveData()
+        }
+    }
+
+    override fun setImageUrl(): LiveData<String> {
+        return try {
+            userDao.getUserImageUrl(currentUser.value!!.uid)
+        }catch (e:Exception){
+            MutableLiveData()
+        }
     }
 }

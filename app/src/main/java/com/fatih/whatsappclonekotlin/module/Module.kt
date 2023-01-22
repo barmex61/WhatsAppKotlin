@@ -3,6 +3,7 @@ package com.fatih.whatsappclonekotlin.module
 import android.content.Context
 import androidx.room.Room
 import com.fatih.whatsappclonekotlin.repository.*
+import com.fatih.whatsappclonekotlin.room.UserDao
 import com.fatih.whatsappclonekotlin.room.UserDb
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -36,7 +37,7 @@ object Module {
 
     @Provides
     @Singleton
-    fun provideProfileInterface(firestore: FirebaseFirestore,reference: StorageReference)=ProfileRepository(firestore,reference) as ProfileRepositoryInterface
+    fun provideProfileInterface(firestore: FirebaseFirestore,reference: StorageReference,userDao: UserDao)=ProfileRepository(firestore,reference,userDao) as ProfileRepositoryInterface
 
     @Provides
     @Singleton

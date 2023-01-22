@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
+<data>
+    <variable
+        name="viewModel"
+        type="com.fatih.whatsappclonekotlin.viewmodel.SettingsFragmentViewModel" />
+</data>
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -58,7 +62,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="65dp"
                     android:layout_height="65sp"
-                    android:src="@drawable/profile"
+                    android:downloadUrl="@{viewModel.imageUrl}"
                     android:transitionName="image_small"
                     android:id="@+id/profileImage"
                     />

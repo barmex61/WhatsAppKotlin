@@ -56,6 +56,8 @@ class ProfileFragment @Inject constructor(): Fragment(R.layout.fragment_profile)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_profile,container,false)
         val animation=AnimationUtils.loadAnimation(requireContext(),R.anim.alpha)
+        binding.viewModel=viewModel
+        binding.lifecycleOwner=this
         binding.profileFabButton.startAnimation(animation)
         binding.fragmentProfileBackArrow.setOnClickListener {
             findNavController().navigateUp()
@@ -127,6 +129,7 @@ class ProfileFragment @Inject constructor(): Fragment(R.layout.fragment_profile)
 
             }
         }
+
     }
 
 
