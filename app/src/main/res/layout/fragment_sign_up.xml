@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.logview.SignUpFragment">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/whatsapp_logo"
+        android:layout_marginTop="150dp"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameText"
+        android:hint="User name"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#B3B0B0"
+        android:ems="10"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:maxLines="1"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailText"
+        android:hint="Email"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#B3B0B0"
+        android:ems="10"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordText"
+        android:hint="Password"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#B3B0B0"
+        android:ems="10"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:maxLines="1"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/haveAccountText"
+        android:text="Already have an account ?"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#B3B0B0"
+        android:layout_gravity="end"
+        android:ems="10"
+        android:layout_marginEnd="30dp"
+        android:maxLines="1"
+        android:textColor="@color/black" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:textAllCaps="false"
+        android:onClick="signUp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/design_default_color_secondary_variant"
+        android:id="@+id/signUpButton"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Google"
+            android:id="@+id/googleButton"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="false"
+            app:cornerRadius="10dp"
+            android:drawableLeft="@drawable/ic_google"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#E3DEDE"
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:id="@+id/facebookButton"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="false"
+            android:drawableLeft="@drawable/ic_facebook"
+            android:backgroundTint="@color/fb_color"
+            app:cornerRadius="10dp"
+
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBarSignUp"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical|center_horizontal"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

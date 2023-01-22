@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:layout_gravity="end"
+        android:layout_marginStart="100dp"
+        android:gravity="end"
+        android:id="@+id/messageFragmentSenderRow"
+        android:layout_marginBottom="7dp"
+        android:paddingTop="7dp"
+        android:paddingStart="10dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/message_fragment_row_bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#DD000000"
+        android:id="@+id/messageRowSenderText"
+        android:paddingBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingEnd="5dp"
+        android:text="But I ccount of the system"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="19:22"
+            android:layout_alignEnd="@id/messageRowSenderText"
+            android:textColor="#99000000"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/messageFragmentSentRowDate"
+            android:layout_alignBottom="@id/messageRowSenderText"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/double_tick"
+            android:id="@+id/messageFragmentSentRowTick"
+            android:layout_alignEnd="@id/messageRowSenderText"
+            android:layout_alignBottom="@id/messageRowSenderText"
+            app:tint="#77000000" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="7dp"
+        android:id="@+id/messageFragmentRecieverRow"
+        android:gravity="end"
+        android:layout_marginBottom="7dp"
+        android:paddingTop="7dp"
+        android:paddingStart="10dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/message_fragment_reciever">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#DD000000"
+            android:id="@+id/messageRowRecieverText"
+            android:paddingBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingEnd="5dp"
+            android:text="But I ccount of the system"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/messageRowRecieverDate"
+            android:text="19:22"
+            android:layout_alignEnd="@id/messageRowRecieverText"
+            android:textColor="#99000000"
+            android:layout_alignBottom="@id/messageRowRecieverText"/>
+
+
+    </RelativeLayout>
+</LinearLayout>

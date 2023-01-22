@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        tools:context=".view.feedview.TabLayoutFragment"
+        android:layout_height="match_parent"
+        >
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:id="@+id/tabLayoutToolbar"
+
+                    >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/calistoga"
+                        android:text="WhatsApp"
+                        android:textColor="@color/white"
+                        android:textSize="21sp"
+                        android:id="@+id/whatsAppText"
+                        />
+
+                    <ImageView
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?selectableItemBackground"
+                        android:id="@+id/cameraImage"
+                        android:layout_width="25dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_toStartOf="@+id/searchImage"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/camera_icon"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/searchImage"
+                        android:layout_marginTop="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_baseline_search_24"
+                        android:scaleType="centerCrop"
+                        app:tint="@color/white" />
+
+                </RelativeLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextColor="#99FFFFFF"
+                    app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                    app:tabIndicatorColor="@color/white"
+                    app:tabIndicatorAnimationMode="elastic"
+                    android:layout_marginTop="?actionBarSize"
+                    android:id="@+id/tabLayout"/>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:id="@+id/viewPager"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|end"
+            app:layout_anchor="@id/viewPager"
+            android:src="@drawable/ic_baseline_chat_24"
+            android:layout_margin="25dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp"
+    android:paddingBottom="25dp"
+    android:orientation="vertical"
+    android:paddingTop="45dp"
+    android:background="@drawable/bottom_sheet_bg"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adınızı giriniz"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Fatih Koç"
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/bottomSheetNameText"
+        />
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hakkımda"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:backgroundTint="@color/colorPrimary"
+
+        android:text="Ben bir bilgisayar mühendisiyim"
+        android:id="@+id/bottomSheetStatusText"
+        />
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefon"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="+90 552 466 33 13"
+        android:id="@+id/bottomSheetPhoneText"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:text="İptal"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/edittext_ripple_rounded_bg"
+        android:layout_marginTop="10dp"
+        android:id="@+id/bottomSheetCancel"
+        android:layout_marginEnd="40dp"
+        android:textStyle="bold"
+        />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="30dp"
+            android:text="Kaydet"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/edittext_ripple_rounded_bg"
+            android:id="@+id/bottomSheetApply"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp"
+            android:layout_marginEnd="15dp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
