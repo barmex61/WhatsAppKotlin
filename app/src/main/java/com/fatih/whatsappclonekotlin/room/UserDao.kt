@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.fatih.whatsappclonekotlin.model.User
 
+
 @Dao
 interface UserDao {
 

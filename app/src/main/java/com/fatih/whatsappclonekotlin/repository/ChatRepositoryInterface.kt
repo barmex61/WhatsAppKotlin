@@ -6,5 +6,5 @@ import com.fatih.whatsappclonekotlin.util.Resource
 
 interface ChatRepositoryInterface {
 
-    suspend fun getUsersFromFirebase(): LiveData<Resource<List<User>>>
+    suspend fun getUsersFromFirebase(lambda:(List<User>)->Unit)
 }

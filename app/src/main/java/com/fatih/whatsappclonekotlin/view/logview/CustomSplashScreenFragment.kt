@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.fatih.whatsappclonekotlin.R
+import com.fatih.whatsappclonekotlin.util.Instance.currentUser
 import com.fatih.whatsappclonekotlin.util.Status
 import com.fatih.whatsappclonekotlin.viewmodel.ChatFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,41 +30,20 @@ class CustomSplashScreenFragment @Inject constructor() : Fragment(R.layout.fragm
         viewModel= activity?.run {
             ViewModelProviders.of(this)[ChatFragmentViewModel::class.java]
         }
-        viewModel?.getChatUsers()
-        viewModel?.chatUser?.observe(viewLifecycleOwner){
-            when(it.status){
-                Status.SUCCESS->{
-                    findNavController().navigate(R.id.action_customSplashScreenFragment_to_signInFragment)
+        currentUser.value?.let {
+            viewModel?.getChatUsers()
+            viewModel?.chatUser?.observe(viewLifecycleOwner){
+                when(it.status){
+                    Status.SUCCESS->{
+                        findNavController().navigate(R.id.action_customSplashScreenFragment_to_signInFragment)
+                    }
+                    Status.LOADING->{}
+                    Status.ERROR->{Toast.makeText(requireContext(),it.message,Toast.LENGTH_LONG).show()}
                 }
-                Status.LOADING->{}
-                Status.ERROR->{Toast.makeText(requireContext(),it.message,Toast.LENGTH_LONG).show()}
             }
-        }
+        }?:findNavController().navigate(R.id.action_customSplashScreenFragment_to_signInFragment)
+
         return super.onCreateView(inflater, container, savedInstanceState)
-    }
 
-    override fun onResume() {
-
-        viewModel= activity?.run {
-            ViewModelProvider(this)[ChatFragmentViewModel::class.java]
-        }
-        viewModel?.getChatUsers()
-        viewModel?.chatUser?.observe(viewLifecycleOwner){
-            when(it.status){
-                Status.SUCCESS->{
-                    findNavController().navigate(R.id.action_customSplashScreenFragment_to_signInFragment)
-                }
-                Status.LOADING->{}
-                Status.ERROR->{Toast.makeText(requireContext(),it.message,Toast.LENGTH_LONG).show()}
-                }
-            }
-
-        super.onResume()
-    }
-
-    override fun onDestroy() {
-        val viewModel:ChatFragmentViewModel by activityViewModels()
-        println(viewModel.chatUser.value?.data?.size)
-        super.onDestroy()
     }
 }

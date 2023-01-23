@@ -10,5 +10,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="fb_color" >#3C5793</color>
+    <color name="tick">#185DF8</color>
+    <color name="tickUnseen">#88000000</color>
 
 </resources>

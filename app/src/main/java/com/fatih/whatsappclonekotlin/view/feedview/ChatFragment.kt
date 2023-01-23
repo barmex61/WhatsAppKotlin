@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fatih.whatsappclonekotlin.R
 import com.fatih.whatsappclonekotlin.databinding.FragmentChatBinding
@@ -42,6 +43,9 @@ class ChatFragment @Inject constructor(): Fragment(R.layout.fragment_chat) {
         viewModel?.let {
             observeLiveData(it)
         }
+        adapter.setMyListener {
+            findNavController().navigate(TabLayoutFragmentDirections.actionTabLayoutFragmentToMessageFragment(it.uid))
+        }
         return binding.root
     }
 
@@ -63,10 +67,4 @@ class ChatFragment @Inject constructor(): Fragment(R.layout.fragment_chat) {
         }
     }
 
-
-    override fun onResume() {
-        val viewModel:ChatFragmentViewModel by activityViewModels()
-        viewModel.getChatUsers()
-        super.onResume()
-    }
 }

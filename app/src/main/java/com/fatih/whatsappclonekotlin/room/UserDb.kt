@@ -5,8 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.fatih.whatsappclonekotlin.model.User
 
-@Database(entities = [User::class], version = 1)
-@TypeConverters(HashMapTypeConverter::class)
+@Database(entities = [User::class], version = 5)
 abstract class UserDb:RoomDatabase() {
     abstract fun userDao():UserDao
 }

@@ -18,17 +18,13 @@ class ChatFragmentViewModel @Inject constructor(private val chatRepository: Chat
     val chatUser:LiveData<Resource<List<User>>>
     get() = _chatUsers
 
-    init {
-        viewModelScope.launch {
-            _chatUsers= chatRepository.getUsersFromFirebase() as MutableLiveData<Resource<List<User>>>
-        }
-    }
+
     fun getChatUsers()=viewModelScope.launch {
         _chatUsers.value= Resource.loading()
-        _chatUsers= chatRepository.getUsersFromFirebase() as MutableLiveData<Resource<List<User>>>
+        chatRepository.getUsersFromFirebase {
+            _chatUsers.value=Resource.success(it)
+        }
     }
-
-
 
 
 }

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:paddingStart="25dp"
     android:paddingEnd="25dp"
+    android:id="@+id/bottomSheetContainer"
     android:paddingBottom="25dp"
     android:orientation="vertical"
     android:paddingTop="45dp"
@@ -22,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Fatih Koç"
         android:backgroundTint="@color/colorPrimary"
         android:id="@+id/bottomSheetNameText"
         />
@@ -41,8 +41,6 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:backgroundTint="@color/colorPrimary"
-
-        android:text="Ben bir bilgisayar mühendisiyim"
         android:id="@+id/bottomSheetStatusText"
         />
     <TextView
@@ -60,7 +58,6 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:backgroundTint="@color/colorPrimary"
-        android:text="+90 552 466 33 13"
         android:id="@+id/bottomSheetPhoneText"
         />
     <LinearLayout

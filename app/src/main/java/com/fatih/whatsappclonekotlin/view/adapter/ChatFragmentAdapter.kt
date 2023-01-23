@@ -12,6 +12,13 @@ import com.fatih.whatsappclonekotlin.model.User
 
 class ChatFragmentAdapter: RecyclerView.Adapter<ChatFragmentAdapter.ChatFragmentViewHolder>() {
 
+    private var myListenerLambda:((User)->Unit)?=null
+
+    fun setMyListener(myLambda:(User)->Unit){
+        this.myListenerLambda=myLambda
+    }
+
+
     private val diffUtil=object:DiffUtil.ItemCallback<User>(){
         override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem==newItem
@@ -38,6 +45,11 @@ class ChatFragmentAdapter: RecyclerView.Adapter<ChatFragmentAdapter.ChatFragment
 
     override fun onBindViewHolder(holder: ChatFragmentViewHolder, position: Int) {
         holder.binding.user=userList[position]
+        holder.itemView.setOnClickListener {
+                myListenerLambda?.let {
+                    it(userList[position])
+                }
+        }
     }
 
     override fun getItemCount(): Int {

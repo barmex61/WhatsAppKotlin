@@ -66,6 +66,13 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"
             app:destination="@id/settingsFragment" />
+        <action
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            android:id="@+id/action_tabLayoutFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -81,4 +88,13 @@
         android:id="@+id/profileFragment"
         android:name="com.fatih.whatsappclonekotlin.view.menuview.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.fatih.whatsappclonekotlin.view.feedview.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <argument
+            android:name="uid"
+            app:argType="string" />
+    </fragment>
 </navigation>

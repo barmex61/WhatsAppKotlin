@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -21,6 +22,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.fatih.whatsappclonekotlin.R
 import com.fatih.whatsappclonekotlin.databinding.FragmentProfileBinding
@@ -39,7 +41,7 @@ class ProfileFragment @Inject constructor(): Fragment(R.layout.fragment_profile)
     private lateinit var binding:FragmentProfileBinding
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     private lateinit var permissionLauncher: ActivityResultLauncher<String>
-    private val viewModel:ProfileFragmentViewModel by viewModels()
+    private lateinit var viewModel: ProfileFragmentViewModel
     private lateinit var selectedUri:Uri
     private lateinit var bottomSheetDialog: BottomSheetDialog
 
@@ -55,6 +57,7 @@ class ProfileFragment @Inject constructor(): Fragment(R.layout.fragment_profile)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_profile,container,false)
+        viewModel=ViewModelProvider(this)[ProfileFragmentViewModel::class.java]
         val animation=AnimationUtils.loadAnimation(requireContext(),R.anim.alpha)
         binding.viewModel=viewModel
         binding.lifecycleOwner=this
@@ -86,7 +89,13 @@ class ProfileFragment @Inject constructor(): Fragment(R.layout.fragment_profile)
         bottomSheetDialog.findViewById<TextView>(R.id.bottomSheetCancel)?.setOnClickListener {
             bottomSheetDialog.dismiss()
         }
-
+        viewModel.userInfo.observe(viewLifecycleOwner){
+            it?.let {
+                bottomSheetDialog.findViewById<EditText>(R.id.bottomSheetNameText)?.setText(it.userName)
+                bottomSheetDialog.findViewById<EditText>(R.id.bottomSheetStatusText)?.setText(it.status)
+                bottomSheetDialog.findViewById<EditText>(R.id.bottomSheetPhoneText)?.setText(it.phone)
+            }
+        }
         bottomSheetDialog.findViewById<TextView>(R.id.bottomSheetApply)?.setOnClickListener {
             val name=bottomSheetDialog.findViewById<EditText>(R.id.bottomSheetNameText)?.text.toString()
             val status=bottomSheetDialog.findViewById<EditText>(R.id.bottomSheetStatusText)?.text.toString()
@@ -128,6 +137,9 @@ class ProfileFragment @Inject constructor(): Fragment(R.layout.fragment_profile)
                 }
 
             }
+        }
+        viewModel.userInfo.observe(viewLifecycleOwner){
+
         }
 
     }

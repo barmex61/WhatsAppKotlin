@@ -13,6 +13,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -46,4 +47,9 @@ object Module {
     @Provides
     @Singleton
     fun provideUserDb(@ApplicationContext context: Context)= Room.databaseBuilder(context,UserDb::class.java,"UserDatabase").build().userDao()
+
+    @Provides
+    @Singleton
+    fun provideMessageRepo(firestore: FirebaseFirestore)=MessageRepository(firestore) as MessageRepositoryInterface
+
 }
